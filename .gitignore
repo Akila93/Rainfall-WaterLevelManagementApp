@@ -28,3 +28,7 @@ node_modules
 
 # Ignore build files
 public
+
+#ignore .idea file in pushing
+.idea
+.idea/*
