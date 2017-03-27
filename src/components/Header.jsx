@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../styles/bootstrap-3.3.7-dist/css/bootstrap.min.css';
+import $ from '../../jquery/jquery-3.1.1.min.js';
 
 export default class Header extends React.Component{
 	constructor(){
