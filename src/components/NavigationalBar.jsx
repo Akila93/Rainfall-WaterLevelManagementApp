@@ -32,30 +32,27 @@ export default class NavigationalBar extends React.Component {
 
 	}
 	generateOptionsForBread(){
+		let optionsForHeader=this.props.optionsForHeader;
 		let listOfOption=[];
-		let item={}
+		let item={};
+		let currentNevigation=this.state.navigation;
+		if(currentNevigation==1){
+			item=optionsForHeader[0];
+			listOfOption.push(item);
+		}else{
+			item=optionsForHeader[0];
+			item.live=false;
+			listOfOption.push(item);
+			item=optionsForHeader[currentNevigation-1];
+			item.live=true;
+			listOfOption.push(item);
+		}
 
 		return listOfOption;
 	}
 	renderBreadcrumb(){
 
-		let options=[
-			{
-				name:"Home",
-				live: false,
-				link: "#"
-			},
-			{
-				name:"Library",
-				live: false,
-				link: "#"
-			},
-			{
-				name:"Library",
-				live: true,
-				link: "#"
-			}
-		];
+		let options=this.generateOptionsForBread();
 		let self=this;
 		return (
 			<ol className="breadcrumb">
@@ -69,28 +66,7 @@ export default class NavigationalBar extends React.Component {
 	}
 
 	render(){
-		let optionsForHeader=[
-			{
-				name:"Home",
-				live: true,
-				link: "#"
-			},
-			{
-				name:"View Map",
-				live: false,
-				link: "#"
-			},
-			{
-				name:"Weather data",
-				live: false,
-				link: "#"
-			},
-			{
-				name:"Contact us",
-				live: false,
-				link: "#"
-			}
-		];
+		let optionsForHeader=this.props.optionsForHeader;
 		let self=this;
 		return (
 			<div className="container-fluid">

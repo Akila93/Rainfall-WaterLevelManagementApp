@@ -28,7 +28,7 @@ export default class Slideshow extends React.Component {
 	renderListItem(option,key){
 		return (
 			<div key={key} className={"item"+(option.status?" active":"")}>
-				<img style={{overflow: 'auto'}} src={option.image} alt={option.alternative}/>
+				<img style={{height:'auto',width:'auto',maxWidth:'1080px',maxHeight:'800px'}} src={option.image} alt={option.alternative}/>
 				<div className="carousel-caption">
 					...
 				</div>

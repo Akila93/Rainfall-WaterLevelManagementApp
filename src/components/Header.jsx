@@ -17,15 +17,15 @@ export default class Header extends React.Component{
 		}.bind(self));
 	}
 
-	renderLi(name,index,context){
+	renderLi(name,icon,index,context){
 		let key=index;
 		if(context.state.navigation==index){
 			return (
-				<li key={key} role="presentation" className="active" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
+				<li key={key} role="presentation" className="active" onClick={context.handleClick.bind(context,index)}><a href="#">{name} <span style={{color:'white'}} className={"glyphicon glyphicon-"+icon}></span></a></li>
 			);
 		}
 		return (
-			<li key={key} role="presentation" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
+			<li key={key} role="presentation" onClick={context.handleClick.bind(context,index)}><a href="#">{name} <span className={"glyphicon glyphicon-"+icon}></span></a></li>
 		);
 	}
 
@@ -39,7 +39,7 @@ export default class Header extends React.Component{
 				<ul className="nav nav-pills">
 					{options.map(function(option,key){
 						return (
-							self.renderLi(option.name,key+1,self)
+							self.renderLi(option.name,option.icon,key+1,self)
 						);
 					})}
 				</ul>

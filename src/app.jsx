@@ -33,10 +33,36 @@ export default class App extends React.Component {
 		}
 	}
   render() {
+  	let optionsForHeader=[
+			{
+				name:"Home",
+				live: true,
+				link: "#",
+				icon:"home"
+			},
+			{
+				name:"View Map",
+				live: false,
+				link: "#",
+				icon:"globe"
+			},
+			{
+				name:"Weather data",
+				live: false,
+				link: "#",
+				icon:"info-sign"
+			},
+			{
+				name:"Contact us",
+				live: false,
+				link: "#",
+				icon:"earphone"
+			}
+		];
   	let self= this;
     return (
       <div className="container-fluid">
-      	<NavigationalBar callback={self.handleNavigationCallback.bind(self)}/>
+      	<NavigationalBar optionsForHeader={optionsForHeader} callback={self.handleNavigationCallback.bind(self)}/>
 				{this.renderContent()}
       </div>
     )
