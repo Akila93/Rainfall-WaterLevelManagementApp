@@ -18,27 +18,30 @@ export default class Header extends React.Component{
 	}
 
 	renderLi(name,index,context){
+		let key=index;
 		if(context.state.navigation==index){
 			return (
-				<li role="presentation" className="active" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
+				<li key={key} role="presentation" className="active" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
 			);
 		}
 		return (
-			<li role="presentation" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
+			<li key={key} role="presentation" onClick={context.handleClick.bind(context,index)}><a href="#">{name}</a></li>
 		);
 	}
 
 	render(){
 		let self= this;
+			let options=this.props.options;
 		return (
 			<div className="page-header">
 				<h1>Water Management System <small>Rainfall and water level prediction</small></h1>
 				<br/>
 				<ul className="nav nav-pills">
-					{self.renderLi("Home",1,self)}
-					{self.renderLi("View Map",2,self)}
-					{self.renderLi("Weather data",3,self)}
-					{self.renderLi("Contact us",4,self)}
+					{options.map(function(option,key){
+						return (
+							self.renderLi(option.name,key+1,self)
+						);
+					})}
 				</ul>
 			</div>
 		);

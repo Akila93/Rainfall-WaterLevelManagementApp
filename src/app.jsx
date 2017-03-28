@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Components/Header.jsx';
+import NavigationalBar from './Components/NavigationalBar.jsx';
 import Map from './pages/Map.jsx';
 import Home from './pages/Home.jsx';
 import WeatherData from './pages/WeatherData.jsx';
@@ -36,7 +36,7 @@ export default class App extends React.Component {
   	let self= this;
     return (
       <div className="container-fluid">
-      	<Header callback={self.handleNavigationCallback.bind(self)}/>
+      	<NavigationalBar callback={self.handleNavigationCallback.bind(self)}/>
 				{this.renderContent()}
       </div>
     )
